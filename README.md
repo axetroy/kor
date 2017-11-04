@@ -29,17 +29,43 @@ npm install @axetroy/kor -g
 
 ## Usage
 
-```bash
+```javascript
 const Kor = require('@axetroy/kor');
+const Router = require('koa-router');
 
-new Kor()
-  .use(function(ctx) {
-    ctx.body = 'hello world';
+const route = Router();
+
+route.get('/now', ctx => {
+  ctx.body = Date.now();
+});
+
+route.post('/register', ctx => {
+  // do something
+  ctx.body = 'register success!';
+});
+
+route.get('/info', ctx => {
+  ctx.body = 'here is your user information';
+});
+
+const app = new Kor();
+
+app
+  .use((ctx, next) => {
+    // an middleware
+    next();
+  })
+  .get('/say/:word', ctx => {
+    ctx.body = `Hello ${ctx.params.word}`;
+  })
+  .route('/api/v1', route)
+  .use(function NotFound(ctx) {
+    ctx.body = '404 Not Found';
   })
   .listen(8080);
 ```
 
-More Examples
+[More Examples](https://github.com/axetroy/kor/tree/master/examples)
 
 ## Contributing
 
