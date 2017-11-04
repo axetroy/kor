@@ -1,3 +1,6 @@
+/// <reference types="koa" />
+/// <reference types="koa-router" />
+
 import * as KoaApplication from 'koa';
 import * as Router from 'koa-router';
 
