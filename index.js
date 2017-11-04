@@ -3,20 +3,9 @@ const Router = require('koa-router');
 const methods = require('methods');
 const router = new Router();
 
-class Server {
+class Kor extends Koa {
   constructor() {
-    this.__koa = new Koa();
-    Object.defineProperty(this, '__koa', {
-      configurable: false,
-      enumerable: false
-    });
-  }
-  get koa() {
-    return this.__koa;
-  }
-  use(middleware) {
-    this.__koa.use(middleware);
-    return this;
+    super();
   }
   route(url, router) {
     url = url === '*' ? '/' : url;
@@ -30,27 +19,11 @@ class Server {
 
     return this.use(newRouter.routes());
   }
-  listen(port) {
-    return this.__koa.listen(port);
-  }
 }
-
-Object.defineProperties(Server.prototype, {
-  pid: {
-    value: process.pid,
-    configurable: false,
-    enumerable: false
-  },
-  env: {
-    value: process.env,
-    configurable: false,
-    enumerable: false
-  }
-});
 
 methods.forEach(method => {
   // method is lowercase all ready
-  Object.defineProperty(Server.prototype, method, {
+  Object.defineProperty(Kor.prototype, method, {
     value: function(url, handler) {
       const newRouter = new Router();
       const routerDefiner = newRouter[method];
@@ -61,7 +34,7 @@ methods.forEach(method => {
   });
 });
 
-Object.freeze(Server);
-Object.freeze(Server.prototype);
+Object.freeze(Kor);
+Object.freeze(Kor.prototype);
 
-module.exports = Server;
+module.exports = Kor;
