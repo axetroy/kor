@@ -68,6 +68,9 @@ app
     // an middleware
     next();
   })
+  .all('/all', ctx => {
+    ctx.body = `This is all method: ${ctx.request.method}`;
+  })
   .get('/say/:word', ctx => {
     ctx.body = `Hello ${ctx.params.word}`;
   })
@@ -79,7 +82,6 @@ app
   .listen(8080, function() {
     console.info(`Listen on 8080`);
   });
-
 ```
 
 [More Examples](https://github.com/axetroy/kor/tree/master/examples)
@@ -88,7 +90,7 @@ app
 
 ```bash
 git clone https://github.com/axetroy/kor.git
-cd ./@axetroy/kor
+cd ./kor
 yarn
 ```
 
