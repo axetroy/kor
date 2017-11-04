@@ -1,0 +1,24 @@
+{
+  "name": "kor",
+  "version": "0.1.0",
+  "description": "Integration Koa + Koa-router with graceful API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axetroy/kor.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/axetroy/kor/issues"
+  },
+  "homepage": "https://github.com/axetroy/kor#readme",
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-router": "^7.2.1",
+    "methods": "^1.1.2"
+  }
+}
