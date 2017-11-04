@@ -12,20 +12,16 @@ Integration Koa + Koa-router with graceful API
 
 ## Features
 
-- [x] Base on Koa@2
-- [x] Integration Koa-router
+- [x] Base on [Koa@2](https://github.com/koajs/koa)
+- [x] Integration [Koa-router](https://github.com/alexmingoia/koa-router)
 - [x] Graceful Router define
+- [ ] Static file (unnecessary)
+- [ ] Auto Load View Template(unnecessary)
 
 ## Installation
 ```bash
 npm install @axetroy/kor -g
 ```
-
-## Supports
-
-- [x] Windows
-- [x] Linux
-- [x] MacOS
 
 ## Usage
 
