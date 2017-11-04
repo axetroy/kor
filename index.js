@@ -21,7 +21,8 @@ class Kor extends Koa {
   }
 }
 
-methods.forEach(method => {
+// koa-route support all method
+methods.concat(['all']).forEach(method => {
   // method is lowercase all ready
   Object.defineProperty(Kor.prototype, method, {
     value: function(url, handler) {

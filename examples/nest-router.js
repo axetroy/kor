@@ -40,6 +40,9 @@ app
     // an middleware
     next();
   })
+  .all('/all', ctx => {
+    ctx.body = `This is all method: ${ctx.request.method}`;
+  })
   .get('/say/:word', ctx => {
     ctx.body = `Hello ${ctx.params.word}`;
   })
