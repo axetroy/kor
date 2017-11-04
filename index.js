@@ -1,7 +1,6 @@
 const Koa = require('koa');
 const Router = require('koa-router');
 const methods = require('methods');
-const router = new Router();
 
 class Kor extends Koa {
   constructor() {
