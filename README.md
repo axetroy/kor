@@ -27,9 +27,8 @@ npm install @axetroy/kor -g
 
 ```javascript
 const Kor = require('@axetroy/kor');
-const Router = require('koa-router');
-
-const userRoute = Router();
+const userRoute = Kor.Router();
+const commonRoute = Kor.Router();
 
 userRoute
   .get('/', ctx => {
@@ -50,8 +49,6 @@ userRoute
   .delete('/addFriend/:username', ctx => {
     ctx.body = `Add friend ${ctx.params.username} success!`;
   });
-
-const commonRoute = Router();
 
 commonRoute
   .get('/', ctx => {
@@ -82,6 +79,7 @@ app
   .listen(8080, function() {
     console.info(`Listen on 8080`);
   });
+
 ```
 
 [More Examples](https://github.com/axetroy/kor/tree/master/examples)

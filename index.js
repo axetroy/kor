@@ -34,7 +34,7 @@ methods.concat(['all']).forEach(method => {
   });
 });
 
-Object.freeze(Kor);
-Object.freeze(Kor.prototype);
-
 module.exports = Kor;
+module.exports.default = Kor;
+module.exports.Kor = Kor;
+module.exports.Router = Router;

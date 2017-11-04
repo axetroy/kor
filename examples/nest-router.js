@@ -1,7 +1,6 @@
 const Kor = require('../index');
-const Router = require('koa-router');
-
-const userRoute = Router();
+const userRoute = Kor.Router();
+const commonRoute = Kor.Router();
 
 userRoute
   .get('/', ctx => {
@@ -22,8 +21,6 @@ userRoute
   .delete('/addFriend/:username', ctx => {
     ctx.body = `Add friend ${ctx.params.username} success!`;
   });
-
-const commonRoute = Router();
 
 commonRoute
   .get('/', ctx => {
