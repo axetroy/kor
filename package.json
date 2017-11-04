@@ -1,5 +1,5 @@
 {
-  "name": "kor",
+  "name": "@axetroy/kor",
   "version": "0.1.0",
   "description": "Integration Koa + Koa-router with graceful API",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/axetroy/kor.git"
   },
-  "author": "",
+  "author": "Axetroy",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/axetroy/kor/issues"
