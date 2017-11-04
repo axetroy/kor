@@ -12,7 +12,20 @@ route.post('/register', ctx => {
   ctx.body = 'register success!';
 });
 
-new Kor()
+route.get('/info', ctx => {
+  ctx.body = 'here is your user information';
+});
+
+const app = new Kor();
+
+app
+  .use((ctx, next) => {
+    // an middleware
+    next();
+  })
+  .get('/say/:word', ctx => {
+    ctx.body = `Hello ${ctx.params.word}`;
+  })
   .route('/api/v1', route)
   .use(function NotFound(ctx) {
     ctx.body = '404 Not Found';

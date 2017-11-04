@@ -3,17 +3,19 @@ const Router = require('koa-router');
 const methods = require('methods');
 const router = new Router();
 
-const KOA = Symbol('koa instance');
-
 class Server {
   constructor() {
-    this[KOA] = new Koa();
+    this.__koa = new Koa();
+    Object.defineProperty(this, '__koa', {
+      configurable: false,
+      enumerable: false
+    });
   }
   get koa() {
-    return this[KOA];
+    return this.__koa;
   }
   use(middleware) {
-    this[KOA].use(middleware);
+    this.__koa.use(middleware);
     return this;
   }
   route(url, router) {
@@ -29,20 +31,31 @@ class Server {
     return this.use(newRouter.routes());
   }
   listen(port) {
-    return this[KOA].listen(port);
+    return this.__koa.listen(port);
   }
 }
 
+Object.defineProperties(Server.prototype, {
+  pid: {
+    value: process.pid,
+    configurable: false,
+    enumerable: false
+  },
+  env: {
+    value: process.env,
+    configurable: false,
+    enumerable: false
+  }
+});
+
 methods.forEach(method => {
+  // method is lowercase all ready
   Object.defineProperty(Server.prototype, method, {
     value: function(url, handler) {
       const newRouter = new Router();
-
-      const routerDefiner = newRouter[method.toLowerCase()];
-
+      const routerDefiner = newRouter[method];
       if (!routerDefiner) throw new Error(`Not support the method ${method}`);
-
-      routerDefiner(url, handler);
+      routerDefiner.call(newRouter, url, handler);
       return this.use(newRouter.routes());
     }
   });
