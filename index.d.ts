@@ -1,68 +1,133 @@
 import * as KoaApplication from 'koa';
-import Router from 'koa-router';
+import * as Router from 'koa-router';
 
-interface KorConstructor {
-  new (): Kor;
+declare interface KorRouter {
+  new (): Router;
 }
 
-interface Kor extends KoaApplication {
-  get(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
-  post(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
-  put(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
+declare interface KorConstructor {
+  new (): KorInterface;
+  Router: KorRouter;
+}
+
+declare interface KorInterface extends KoaApplication {
+  get(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
+  post(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
+  put(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
   ['delete'](
     path: string | RegExp,
     ...middleware: Array<Router.IMiddleware>
-  ): Kor;
-  options(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
-  head(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
-  trace(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
-  copy(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
-  lock(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
-  mkcol(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
-  move(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
-  purge(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
+  ): KorInterface;
+  options(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
+  head(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
+  trace(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
+  copy(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
+  lock(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
+  mkcol(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
+  move(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
+  purge(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
   propfind(
     path: string | RegExp,
     ...middleware: Array<Router.IMiddleware>
-  ): Kor;
+  ): KorInterface;
   proppatch(
     path: string | RegExp,
     ...middleware: Array<Router.IMiddleware>
-  ): Kor;
-  unlock(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
-  report(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
+  ): KorInterface;
+  unlock(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
+  report(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
   mkactivity(
     path: string | RegExp,
     ...middleware: Array<Router.IMiddleware>
-  ): Kor;
+  ): KorInterface;
   checkout(
     path: string | RegExp,
     ...middleware: Array<Router.IMiddleware>
-  ): Kor;
-  merge(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
+  ): KorInterface;
+  merge(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
   ['m-search'](
     path: string | RegExp,
     ...middleware: Array<Router.IMiddleware>
-  ): Kor;
-  notify(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
+  ): KorInterface;
+  notify(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
   subscribe(
     path: string | RegExp,
     ...middleware: Array<Router.IMiddleware>
-  ): Kor;
+  ): KorInterface;
   unsubscribe(
     path: string | RegExp,
     ...middleware: Array<Router.IMiddleware>
-  ): Kor;
-  patch(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
-  search(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
-  connect(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
-  all(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
-  route(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Kor;
+  ): KorInterface;
+  patch(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
+  search(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
+  connect(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
+  all(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
+  route(
+    path: string | RegExp,
+    ...middleware: Array<Router.IMiddleware>
+  ): KorInterface;
 }
 
-declare module '@axetroy/kor' {
-  const Kor: KorConstructor;
-  const Router: Router;
-  export { Router };
-  export default Kor;
-}
+declare const Kor: KorConstructor;
+declare const Router: KorRouter;
+
+export default Kor;
+
+export { Kor, Router };
