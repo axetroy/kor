@@ -62,5 +62,7 @@ interface Kor extends KoaApplication {
 
 declare module '@axetroy/kor' {
   const Kor: KorConstructor;
+  const Router: Router;
+  export { Router };
   export default Kor;
 }

@@ -34,7 +34,8 @@ methods.concat(['all']).forEach(method => {
   });
 });
 
+Kor.Kor = Kor;
+Kor.Router = Router;
+
 module.exports = Kor;
 module.exports.default = Kor;
-module.exports.Kor = Kor;
-module.exports.Router = Router;
