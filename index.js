@@ -7,15 +7,14 @@ class Kor extends Koa {
     super();
   }
   route(url, router) {
-    url = url === '*' ? '/' : url;
-    const newRouter = new Router();
-
-    if (router instanceof Router) {
-      newRouter.use(url, router.routes(), router.allowedMethods());
-    } else if (typeof router === 'function') {
-      newRouter.get(url, router);
+    if (router instanceof Router === false) {
+      throw new Error(
+        `Invalid type of .route(url, router), argument <router> must implement of Koa Router`
+      );
     }
 
+    const newRouter = new Router();
+    newRouter.use(url, router.routes(), router.allowedMethods());
     return this.use(newRouter.routes());
   }
 }
