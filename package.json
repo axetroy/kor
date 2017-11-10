@@ -18,12 +18,14 @@
   },
   "homepage": "https://github.com/axetroy/kor#readme",
   "dependencies": {
-    "koa": "^2.3.0",
+    "koa": "^2.4.1",
     "koa-router": "^7.2.1",
     "methods": "^1.1.2"
   },
   "devDependencies": {
-    "@types/koa": "^2.0.39",
-    "@types/koa-router": "^7.0.23"
+    "@types/koa": "^2.0.40",
+    "@types/koa-router": "^7.0.24",
+    "jest": "^21.2.1",
+    "supertest": "^3.0.0"
   }
 }
