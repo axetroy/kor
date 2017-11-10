@@ -7,6 +7,7 @@
 [![Prettier](https://img.shields.io/badge/Code%20Style-Prettier-green.svg)](https://github.com/prettier/prettier)
 ![Node](https://img.shields.io/badge/node-%3E=7.6-blue.svg?style=flat-square)
 [![npm version](https://badge.fury.io/js/%40axetroy%2Fkor.svg)](https://badge.fury.io/js/%40axetroy%2Fkor)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Faxetroy%2Fkor.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Faxetroy%2Fkor?ref=badge_shield)
 
 Integration Koa + Koa-router with graceful API
 
@@ -104,3 +105,6 @@ You can flow [Contribute Guide](https://github.com/axetroy/@axetroy/kor/blob/mas
 ## License
 
 The [MIT License](https://github.com/axetroy/@axetroy/kor/blob/master/LICENSE)
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Faxetroy%2Fkor.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Faxetroy%2Fkor?ref=badge_large)
