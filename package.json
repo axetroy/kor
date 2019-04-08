@@ -28,7 +28,7 @@
   "devDependencies": {
     "@types/koa": "^2.0.40",
     "@types/koa-router": "^7.0.24",
-    "jest": "^22.0.0",
-    "supertest": "^3.0.0"
+    "jest": "^24.7.1",
+    "supertest": "^4.0.2"
   }
 }
