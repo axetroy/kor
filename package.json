@@ -22,7 +22,7 @@
   "homepage": "https://github.com/axetroy/kor#readme",
   "dependencies": {
     "koa": "^2.4.1",
-    "koa-router": "^7.2.1",
+    "koa-router": "^7.3.0",
     "methods": "^1.1.2"
   },
   "devDependencies": {
